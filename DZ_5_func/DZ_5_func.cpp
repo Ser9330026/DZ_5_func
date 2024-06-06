@@ -46,6 +46,39 @@ void matrixFoo(char matrix[][5], int ROWS, int COLS)
     }
 }
 
+//Определение максимального и минимального элемента на главной диагонали матрицы
+void matrixMinMaxFoo(int matrix[][5], int ROWS, int COLS)
+{
+    int min, max;
+    max = min = matrix[0][0];
+    for (int i = 0, j = 0; i < ROWS, j < COLS; ++i, ++j) {
+        if (matrix[i][j] < min) min = matrix[i][j];
+        if (matrix[i][j] > max) max = matrix[i][j];
+    }
+    std::cout << min << " " << max << std::endl;
+}
+
+void matrixMinMaxFoo(double matrix[][5], int ROWS, int COLS)
+{
+    double min, max;
+    max = min = matrix[0][0];
+    for (int i = 0, j = 0; i < ROWS, j < COLS; ++i, ++j) {
+        if (matrix[i][j] < min) min = matrix[i][j];
+        if (matrix[i][j] > max) max = matrix[i][j];
+    }
+    std::cout << min << " " << max << std::endl;
+}
+
+void matrixMinMaxFoo(char matrix[][5], int ROWS, int COLS)
+{
+    char min, max;
+    max = min = matrix[0][0];
+    for (int i = 0, j = 0; i < ROWS, j < COLS; ++i, ++j) {
+        if (matrix[i][j] < min) min = matrix[i][j];
+        if (matrix[i][j] > max) max = matrix[i][j];
+    }
+    std::cout << min << " " << max << std::endl;
+}
 
 
 int main()
@@ -53,6 +86,7 @@ int main()
     setlocale(LC_ALL, "rus");
     srand(time(NULL));
 
+    //Инициализация квадратной матрицы, Вывод матрицы на экран;
     const int ROWS = 5;
     const int COLS = 5;
     int matrix[ROWS][COLS];
@@ -66,6 +100,18 @@ int main()
     char matrixCh[ROWS][COLS];
     matrixFoo(matrixCh, ROWS, COLS);
     std::cout << std::endl;
-    
+
+    //Определение максимального и минимального элемента на главной диагонали матрицы
+    matrixMinMaxFoo(matrix, ROWS, COLS);
+    std::cout << std::endl;
+
+    matrixMinMaxFoo(matrix1, ROWS, COLS);
+    std::cout << std::endl;
+
+    matrixMinMaxFoo(matrixCh, ROWS, COLS);
+    std::cout << std::endl;
+
+
+
     return 0;
 }
