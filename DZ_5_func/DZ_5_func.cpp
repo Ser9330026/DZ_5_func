@@ -47,6 +47,7 @@ void matrixFoo(char matrix[][5], int ROWS, int COLS)
 }
 
 
+
 int main()
 {
     setlocale(LC_ALL, "rus");
