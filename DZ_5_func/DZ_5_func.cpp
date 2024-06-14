@@ -87,6 +87,32 @@ void matrixMinMaxFoo(char matrix[][5], int ROWS, int COLS)
 Нахождения максимального значения двух целых;
 Нахождения максимального значения трёх целых*/
 
+//Нахождения максимального значения в одномерном массиве
+void fooMax(int arr[], int length)
+{
+    int max = 0;
+    max = arr[0];
+    for (int i = 0; i < length; ++i)
+    {
+        if (max < arr[i]) {
+            max = arr[i];
+        }
+    }
+    std::cout << "Максимальное число в массиве: " << max << std::endl;
+}
+
+void fooMax(double arr[], int length)
+{
+    double max = 0;
+    max = arr[0];
+    for (int i = 0; i < length; ++i)
+    {
+        if (max < arr[i]) {
+            max = arr[i];
+        }
+    }
+    std::cout << "Максимальное число в массиве: " << max << std::endl;
+}
 
 
 int main()
@@ -118,6 +144,15 @@ int main()
 
     matrixMinMaxFoo(matrixCh, ROWS, COLS);
     std::cout << std::endl;
+
+    //Нахождения максимального значения в одномерном массиве
+    const int SIZE = 10;
+    int arr[SIZE]{ 2, 4, 3, 7, 3, 6, 8, 2, 222.09, 2 };
+    fooMax(arr, SIZE);
+
+    double arr1[SIZE]{ 2.66, 4.55, 3.66, 7.77, 3.44, 6.88, 8.99, 2.09, 222.444, 2.999 };
+    fooMax(arr1, SIZE);
+    
 
 
 
