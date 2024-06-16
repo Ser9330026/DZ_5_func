@@ -181,6 +181,30 @@ void fooMaxThreeArr(double arr[][2][4], int size1, int size2, int size3)
     std::cout << "Максимальное число в массиве: " << max << std::endl;
 }
 
+//Нахождения максимального значения двух целых
+
+int MaxValFoo(int a, int b)
+{ 
+    return (a > b) ? a : b;   
+}
+
+double MaxValFoo(double a, double b)
+{
+    return (a > b) ? a : b;
+}
+
+//Нахождения максимального значения трех целых
+
+int MaxThreeValFoo(int a, int b, int c)
+{
+    return (a > b) ? ((a > c) ? a : c) : ((b > c) ? b : c);
+}
+
+double MaxThreeValFoo(double a, double b, double c)
+{
+    return (a > b) ? ((a > c) ? a : c) : ((b > c) ? b : c);
+}
+
 int main()
 {
     setlocale(LC_ALL, "rus");
@@ -272,6 +296,65 @@ int main()
         fooMaxThreeArr(arr, SIZE1, SIZE2, SIZE3);
     }
 
+    //Нахождения максимального значения двух целых
+    {
+        int val1 = 0;
+        int val2 = 0;
+        std::cout << "Введите два целых числа: ";
+        Label1:
+        std::cin >> val1 >> val2;
+        if (val1 == val2) {
+                std::cout << "Числа не должны быть одинаковыми! Введите заново: ";
+                goto Label1;
+            }
+        std::cout << "Большее из двух чисел: " << MaxValFoo(val1, val2) << std::endl;
+
+    }
+
+    {
+        double val1 = 0;
+        double val2 = 0;
+        std::cout << "Введите два дробных числа: ";
+    Label2:
+        std::cin >> val1 >> val2;
+        if (val1 == val2) {
+            std::cout << "Числа не должны быть одинаковыми! Введите заново: ";
+            goto Label2;
+        }
+        std::cout << "Большее из двух чисел: " << MaxValFoo(val1, val2) << std::endl;
+
+    }
+
+    //Нахождения максимального значения трех целых чисел
+    {
+        int val1 = 0;
+        int val2 = 0;
+        int val3 = 0;
+        std::cout << "Введите три целых числа: ";
+    Label3:
+        std::cin >> val1 >> val2 >> val3;
+        if (val1 == val2 || val1 == val3 || val2 == val3) {
+            std::cout << "Числа не должны быть одинаковыми! Введите заново: ";
+            goto Label3;
+        }
+        std::cout << "Большее из трех чисел: " << MaxThreeValFoo(val1, val2, val3) << std::endl;
+       
+    }
+
+    {
+        double val1 = 0;
+        double val2 = 0;
+        double val3 = 0;
+        std::cout << "Введите три дробных числа: ";
+    Label4:
+        std::cin >> val1 >> val2 >> val3;
+        if (val1 == val2 || val1 == val3 || val2 == val3) {
+            std::cout << "Числа не должны быть одинаковыми! Введите заново: ";
+            goto Label4;
+        }
+        std::cout << "Большее из трех чисел: " << MaxThreeValFoo(val1, val2, val3) << std::endl;
+
+    }
 
 
     return 0;
