@@ -146,7 +146,40 @@ void fooMaxDoubleArr(double arr[][5], int rows, int cols)
     std::cout << "Максимальное число в массиве: " << max << std::endl;
 }
 
+//Нахождения максимального значения в трехмерном массиве
+void fooMaxThreeArr(int arr[][2][4], int size1, int size2, int size3)
+{
+    int max = 0;
+    max = arr[0][0][0];
+    for (int i = 0; i < size1; ++i) {
+        for (int j = 0; j < size2; ++j) {
+            for (int k = 0; k < size3; ++k) {
+                if (max < arr[i][j][k]) {
+                max = arr[i][j][k];
+            }            
+            }
+        }
 
+    }
+    std::cout << "Максимальное число в массиве: " << max << std::endl;
+}
+
+void fooMaxThreeArr(double arr[][2][4], int size1, int size2, int size3)
+{
+    double max = 0;
+    max = arr[0][0][0];
+    for (int i = 0; i < size1; ++i) {
+        for (int j = 0; j < size2; ++j) {
+            for (int k = 0; k < size3; ++k) {
+                if (max < arr[i][j][k]) {
+                    max = arr[i][j][k];
+                }
+            }
+        }
+
+    }
+    std::cout << "Максимальное число в массиве: " << max << std::endl;
+}
 
 int main()
 {
@@ -180,21 +213,25 @@ int main()
 
     //Нахождения максимального значения в одномерном массиве
     const int SIZE = 10;
-    int arr[SIZE]{ 2, 4, 3, 7, 3, 6, 8, 2, 222.09, 2 };
-    fooMax(arr, SIZE);
+    {
+        int arr[SIZE]{ 2, 4, 3, 7, 3, 6, 8, 2, 222.09, 2 };
+        fooMax(arr, SIZE);
+    }
 
-    double arr1[SIZE]{ 2.66, 4.55, 3.66, 7.77, 3.44, 6.88, 8.99, 2.09, 222.444, 2.999 };
-    fooMax(arr1, SIZE);
+    {
+        double arr[SIZE]{ 2.66, 4.55, 3.66, 7.77, 3.44, 6.88, 8.99, 2.09, 222.444, 2.999 };
+        fooMax(arr, SIZE);
+    }
 
     //Нахождения максимального значения в двумерном массиве
     {
         const int ROWS = 5;
         const int COLS = 5;
-        int arr[ROWS][COLS] = { {1, 4, 5, 2, 6},
-            {11, 14, 15, 12, 16},
-            {12, 42, 52, 22, 62},
-            {13, 43, 54, 21, 63},
-            {10, 40, 50, 20, 60} };
+        int arr[ROWS][COLS] = { { 1, 4, 5, 2, 6 },
+            { 11, 14, 15, 12, 16 },
+            { 12, 42, 52, 22, 62 },
+            { 13, 43, 54, 21, 63 },
+            { 10, 40, 50, 20, 60 } };
         fooMaxDoubleArr(arr, ROWS, COLS);
         std::cout << std::endl;
     }
@@ -202,17 +239,41 @@ int main()
     {
         const int ROWS = 5;
         const int COLS = 5;
-        double arr[ROWS][COLS] = { {1.33, 4.44, 5.22, 2.33, 6.44},
-            {11.2, 14.2, 15.2, 12.2, 16.2},
-            {12.3, 42.4, 52.888, 22.444, 62.1},
-            {1.3, 4.3, 5.4, 2.1, 6.3},
-            {10.333, 4.0, 50.333, 20.444, 60.666} };
+        double arr[ROWS][COLS] = { { 1.33, 4.44, 5.22, 2.33, 6.44 },
+            { 11.2, 14.2, 15.2, 12.2, 16.2 },
+            { 12.3, 42.4, 52.888, 22.444, 62.1 },
+            { 1.3, 4.3, 5.4, 2.1, 6.3 },
+            { 10.333, 4.0, 50.333, 20.444, 60.666 } };
         fooMaxDoubleArr(arr, ROWS, COLS);
         std::cout << std::endl;
     }
-    
+
+    //Нахождения максимального значения в трехмерном массиве
+
+    {
+        const int SIZE1 = 2;
+        const int SIZE2 = 2;
+        const int SIZE3 = 4;
+        int arr[SIZE1][SIZE2][SIZE3]{
+            { { 1, 3, 6, 5 },{ 8, 9, -2, 4 } },
+            { { 5, 10, 34, 56 },{ 23, -56, 10, 37 } }
+        };
+        fooMaxThreeArr(arr, SIZE1, SIZE2, SIZE3);
+    }
+
+    {
+        const int SIZE1 = 2;
+        const int SIZE2 = 2;
+        const int SIZE3 = 4;
+        double arr[SIZE1][SIZE2][SIZE3]{
+            { { 1.555, 3.555, 6.555, 5.555 },{ 8.555, 9.555, -2.555, 4.555 } },
+            { { 5.555, 10.555, 34.555, 56.555 },{ 23.555, -56.555, 10.555, 37.555 } }
+        };
+        fooMaxThreeArr(arr, SIZE1, SIZE2, SIZE3);
+    }
 
 
 
     return 0;
 }
+
