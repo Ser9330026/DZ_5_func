@@ -307,6 +307,8 @@ T MaxThreeValFooT(T a, T b, T c)
 
 
 
+
+
 //////////   /////   //  ///    //  ////////
 //  //  //  //   //  //  ////   //  /////////
 //  //  //  //   //  //  /////  //  ////////////
@@ -626,11 +628,37 @@ int main()
     std::cout << std::endl;
     
 
+    /*
+    Тема: Сортировка массивов
 
+    Задание 1:
+    Написать программу, выполняющую сортировку одномерного 
+    массива целых чисел методом пузырьковой сортировки.
+    */
+    {
+        const int SIZE = 10;
+        int arr[SIZE];
 
-    
+        for (int i = 0; i < SIZE; ++i) {
+            arr[i] = rand() % 20;
+            std::cout << arr[i] << '\t';
+        }
+        std::cout << std::endl;
 
+        for (int i = SIZE - 1; i > 0; --i) {
+            for (int j = 0; j < i; ++j) {
+                if (arr[j] > arr[j + 1]) {
+                    std::swap(arr[j], arr[j + 1]);
+                }                    
+            }
+        }
 
+        for (int i = 0; i < SIZE; ++i) {
+            std::cout << arr[i] << '\t';
+        }
+        std::cout << std::endl;
+
+    }
     return 0;
 }
 
